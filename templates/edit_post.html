@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+
+#my_table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#my_table td, #my_table th {
+    border: 1px solid #ddd;
+    padding: 15px;
+}
+
+
+
+#my_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.redbutton {
+    background-color: #f44336; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+</style>
+</head>
+
+<body>
+ <title>Edit Post</title>
+ <h1>Edit Post</h1>
+	 <form action="/post/edit/{{id}}" id="post" method="post">
+	 {% for post in posts %}
+	 <input type="text" id="title" name="title" value = {{post.title}}>
+	 <input type="text" id="date" name="date" value = {{post.date}}>
+	 <input type="text" id="author" name="author" value = {{post.author}}>
+	 <textarea rows="4" cols="50" name="content" form="post"> {{post.content}}</textarea>
+	   {% endfor %}
+<input type="submit" value="Update" class="button">
+</form>
+<br>
+<form action="/logout" id="post" method="post">
+<input type="submit" value="Log Out" class="redbutton">
+
+ 
+</form>
+ 
+</table> 
